@@ -1,0 +1,58 @@
+.aboutSection {
+  width: 80vw;
+  margin: 5vmax auto;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: #444;
+}
+
+.aboutSection h1 {
+  font-size: 3vmax;
+  margin-bottom: 2vmax;
+  color: black; 
+}
+
+.aboutContent {
+  margin-bottom: 3vmax;
+}
+
+.appName {
+  font-size: 2.5vmax;
+  font-weight: 700;
+  margin-bottom: 1vmax;
+  color: #eb4034;
+}
+
+.aboutContent p {
+  font-size: 1.4vmax;
+  margin: 1vmax 0;
+  line-height: 1.6;
+}
+
+.aboutSection h2 {
+  font-size: 2vmax;
+  margin: 2vmax 0 1vmax 0;
+  color: #444;
+}
+
+.aboutSection ul {
+  list-style-type: disc;
+  padding-left: 0; /* Remove left padding */
+  text-align: left; /* Keep bullet alignment */
+  display: inline-block; /* Make the list shrink to content */
+  margin: 0 auto 3vmax auto; /* Center the list horizontally */
+}
+
+.aboutSection ul li {
+  font-size: 1.3vmax;
+  margin: 0.8vmax 0;
+  line-height: 1.5;
+  color: #555;
+}
+
+
+.aboutSection > p {
+  font-size: 1.3vmax;
+  line-height: 1.5;
+  color: #555;
+}

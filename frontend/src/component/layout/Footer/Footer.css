@@ -1,0 +1,139 @@
+#footer {
+  background-color: rgb(34, 33, 33);
+  color: white;
+  padding: 3vmax 5vmax;
+  font-family: "Roboto", sans-serif;
+  margin-top: 10vmax;
+}
+
+/* Top Footer - left, center, right */
+.topFooter {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 1vmax;
+}
+
+/* Left Footer */
+.leftFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.leftFooter > h4 {
+  font-size: 1.5vmax; /* increased size */
+  margin-bottom: 1vmax;
+  text-decoration: none; /* remove underline */
+}
+
+.leftFooter > p {
+  font-size: 1vmax;
+  text-align: left;
+  margin-bottom: 1vmax;
+}
+
+.app-images img {
+  width: 8vmax;
+  margin: 0.5vmax;
+  cursor: pointer;
+}
+
+/* Middle Footer */
+.midFooter {
+  text-align: center;
+}
+
+.midFooter > p {
+  margin: 0.5vmax 0;
+  color: white;
+  font-size: 1vmax;
+}
+
+/* Right Footer */
+.rightFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.rightFooter > h4 {
+  font-size: 1.5vmax; /* increased size */
+  margin-bottom: 1vmax;
+  text-decoration: none; /* remove underline */
+}
+
+.rightFooter > a {
+  display: block;
+  color: white;
+  font-size: 1.2vmax;
+  margin: 0.5vmax 0;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.rightFooter > a:hover {
+  color: #eb4034;
+}
+
+/* Quick Links Section */
+.quickLinks {
+  width: 100%;
+  margin-top: 3vmax;
+  text-align: center;
+}
+
+.quickLinks > h4 {
+  font-size: 1.5vmax; /* increased size */
+  margin-bottom: 1vmax;
+  text-decoration: none; /* remove underline */
+}
+
+.linksContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vmax;
+}
+
+.linksContainer a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1vmax;
+  margin: 0.5vmax;
+}
+
+.linksContainer a:hover {
+  color: #eb4034;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .topFooter {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .leftFooter, .midFooter, .rightFooter {
+    width: 100%;
+    align-items: center;
+    margin: 1vmax 0;
+  }
+
+  .app-images img {
+    width: 20vmax;
+    margin: 1vmax 0;
+  }
+
+  .linksContainer {
+    flex-direction: column;
+    gap: 1vmax;
+  }
+}

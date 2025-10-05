@@ -1,0 +1,56 @@
+.featuredProducts {
+  padding: 2rem 5%;
+}
+
+.featuredProducts h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.productCard {
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.productCard:hover {
+  transform: scale(1.05);
+}
+
+.productCard img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.productCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.productCard p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.productCard button {
+  padding: 0.5rem 1rem;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.productCard button:hover {
+  background-color: #333;
+}

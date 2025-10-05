@@ -1,0 +1,136 @@
+.joinus-page {
+  font-family: "Roboto", sans-serif;
+  padding: 4vmax;
+  text-align: center;
+}
+
+.joinus-hero {
+  background: linear-gradient(135deg, #0077ff, #00d4ff);
+  color: white;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.joinus-hero h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.joinus-hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.join-btn {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: #0077ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.join-btn:hover {
+  background: #f1f1f1;
+}
+
+/* Benefits */
+.section-title {
+  font-size: 28px;
+  margin: 40px 0 20px;
+  color: #222;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.benefit-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-6px);
+}
+
+.benefit-icon {
+  font-size: 35px;
+  color: #0077ff;
+  margin-bottom: 15px;
+}
+
+/* Apps Section */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.app-card {
+  background: #f7f7f7;
+  padding: 25px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.app-card:hover {
+  background: #eaf3ff;
+}
+
+.explore-btn {
+  margin-top: 15px;
+  padding: 8px 15px;
+  border: none;
+  background: #0077ff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.explore-btn:hover {
+  background: #005fcc;
+}
+
+/* FAQ */
+.faq-section {
+  max-width: 700px;
+  margin: auto;
+  text-align: left;
+}
+
+.faq-item {
+  background: #fff;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.faq-item h4 {
+  margin: 0;
+  font-size: 16px;
+  color: #222;
+}
+
+.faq-item p {
+  margin-top: 10px;
+  color: #555;
+  font-size: 14px;
+}
+
+.faq-item.active {
+  background: #eaf3ff;
+}

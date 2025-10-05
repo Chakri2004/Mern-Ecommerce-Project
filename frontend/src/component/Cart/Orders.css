@@ -1,0 +1,42 @@
+.ordersPage {
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.ordersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.orderCard {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.orderRow {
+  margin: 5px 0;
+}
+
+.statusConfirmed {
+  color: orange;
+  font-weight: bold;
+}
+
+.statusDelivered {
+  color: green;
+  font-weight: bold;
+}
+
+.backHomeBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

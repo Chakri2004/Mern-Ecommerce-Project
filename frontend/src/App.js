@@ -1,0 +1,164 @@
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import WebFont from "webfontloader";
+import { useSelector } from "react-redux";
+
+// Layout
+import Header from "./component/layout/Header/Header";
+import ScrollToTop from "./component/layout/ScrollToTop/ScrollToTop";
+import Footer from "./component/layout/Footer/Footer";
+import SignInPage from "./component/layout/Pages/SignInPage";
+
+// Pages
+import Home from "./component/Home/Home";
+import Help from "./component/layout/Pages/Help";
+import JoinUs from "./component/layout/Pages/JoinUs";
+import NotFound from "./component/layout/NotFound/NotFound";
+import ProductDetails from "./component/Product/ProductDetails";
+import Products from "./component/Product/Products";
+import Search from "./component/Product/Search";
+
+// User
+import Profile from "./component/User/Profile";
+import UpdateProfile from "./component/User/UpdateProfile";
+import UpdatePassword from "./component/User/UpdatePassword";
+import ForgotPassword from "./component/User/ForgotPassword";
+import ResetPassword from "./component/User/ResetPassword";
+
+// Cart & Orders
+import Wishlist from "./component/Cart/Wishlist";
+import Cart from "./component/Cart/Cart";
+import Shipping from "./component/Cart/Shipping";
+import ConfirmOrder from "./component/Cart/ConfirmOrder";
+import Payment from "./component/Cart/Payment";
+import OrderSuccess from "./component/Cart/OrderSuccess";
+import Orders from "./component/Cart/Orders";
+
+import MyOrders from "./component/Order/MyOrders";
+import OrderDetails from "./component/Order/OrderDetails";
+
+// Admin
+import Dashboard from "./component/Admin/Dashboard";
+import ProductList from "./component/Admin/ProductList";
+import NewProduct from "./component/Admin/NewProduct";
+import UpdateProduct from "./component/Admin/UpdateProduct";
+import OrderList from "./component/Admin/OrderList";
+import ProcessOrder from "./component/Admin/ProcessOrder";
+import UsersList from "./component/Admin/UsersList";
+import UpdateUser from "./component/Admin/UpdateUser";
+import ProductReviews from "./component/Admin/ProductReviews";
+
+// Other Pages
+import Contact from "./component/layout/Contact/Contact";
+import About from "./component/layout/About/About";
+import FindStore from "./component/layout/Pages/FindStore";
+import NewFeatured from "./component/layout/Pages/NewFeatured";
+import Mens from "./component/layout/Pages/Mens";
+import Womens from "./component/layout/Pages/Womens";
+import Kids from "./component/layout/Pages/Kids";
+import Shoes from "./component/layout/Pages/Shoes";
+import Laptops from "./component/layout/Pages/Laptops";
+
+import Support from "./component/layout/Pages/Support";
+import FAQs from "./component/layout/Pages/FAQs";
+import Promotions from "./component/layout/Pages/Promotions";
+import TrackOrder from "./component/layout/Pages/TrackOrder";
+import TermsAndConditions from "./component/layout/Pages/TermsAndConditions";
+import PrivacyPolicy from "./component/layout/Pages/PrivacyPolicy";
+
+import store from "./store";
+import { loadUser } from "./actions/userAction";
+import UserOptions from "./component/layout/Header/UserOptions";
+import ProtectedRoute from "./component/Route/ProtectedRoute";
+
+import "./component/layout/Pages/Pages.css";
+
+function App() {
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    WebFont.load({ google: { families: ["Roboto", "Droid Sans", "Chilanka"] } });
+    store.dispatch(loadUser());
+  }, []);
+
+  const handleLogin = () => setIsLoggedIn(true);
+  const handleLogout = () => setIsLoggedIn(false);
+
+  return (
+    <Router>
+      <ScrollToTop /> {/* ✅ This ensures scroll to top */}
+      {isLoggedIn ? (
+        <>
+          <Header isLoggedIn={isLoggedIn} handleLogout={handleLogout} user={user} />
+          {isAuthenticated && <UserOptions user={user} />}
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/help" component={Help} />
+            <Route exact path="/join-us" component={JoinUs} />
+            <Route exact path="/search/:keyword?" component={Search} />
+            <Route exact path="/product/:id" component={ProductDetails} />
+            <Route exact path="/products" component={Products} />
+            <Route path="/products/:keyword" component={Products} />
+            <Route exact path="/search" component={Search} />
+            <ProtectedRoute exact path="/account" component={Profile} />
+            <ProtectedRoute exact path="/me/update" component={UpdateProfile} />
+            <ProtectedRoute exact path="/password/update" component={UpdatePassword} />
+            <Route exact path="/password/forgot" component={ForgotPassword} />
+            <Route exact path="/password/reset/:token" component={ResetPassword} />
+            <Route exact path="/wishlist" component={Wishlist} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/shipping" component={Shipping} />
+            <Route exact path="/order/confirm" component={ConfirmOrder} />
+            <Route exact path="/process/payment" component={Payment} />
+            <Route exact path="/order-success" component={OrderSuccess} />
+            <Route exact path="/orders" component={Orders} />
+            <ProtectedRoute exact path="/orders" component={MyOrders} />
+            <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
+            <ProtectedRoute exact path="/admin/dashboard" component={Dashboard} isAdmin />
+            <ProtectedRoute exact path="/admin/products" component={ProductList} isAdmin />
+            <ProtectedRoute exact path="/admin/product" component={NewProduct} isAdmin />
+            <ProtectedRoute exact path="/admin/product/:id" component={UpdateProduct} isAdmin />
+            <ProtectedRoute exact path="/admin/orders" component={OrderList} isAdmin />
+            <ProtectedRoute exact path="/admin/order/:id" component={ProcessOrder} isAdmin />
+            <ProtectedRoute exact path="/admin/users" component={UsersList} isAdmin />
+            <ProtectedRoute exact path="/admin/user/:id" component={UpdateUser} isAdmin />
+            <ProtectedRoute exact path="/admin/reviews" component={ProductReviews} isAdmin />
+            <Route exact path="/find-store" component={FindStore} />
+            <Route exact path="/new-featured" component={NewFeatured} />
+            <Route exact path="/mens" component={Mens} />
+            <Route exact path="/womens" component={Womens} />
+            <Route exact path="/kids" component={Kids} />
+            <Route exact path="/shoes" component={Shoes} />
+            <Route exact path="/laptops" component={Laptops} />
+            <Route exact path="/contact" component={Contact} />
+            <Route exact path="/about" component={About} />
+            <Route path="/support" component={Support} />
+            <Route path="/faqs" component={FAQs} />
+            <Route path="/promotions" component={Promotions} />
+            <Route path="/track-order" component={TrackOrder} />
+            <Route path="/termsandconditions" component={TermsAndConditions} />
+            <Route path="/privacy" component={PrivacyPolicy} />
+
+            <Route component={NotFound} />
+          </Switch>
+          <Footer />
+        </>
+      ) : (
+        <Switch>
+          <Route
+            exact
+            path="/signin"
+            render={(props) => <SignInPage {...props} handleLogin={handleLogin} />}
+          />
+          <Route
+            path="*"
+            render={(props) => <SignInPage {...props} handleLogin={handleLogin} />}
+          />
+        </Switch>
+      )}
+    </Router>
+  );
+}
+
+export default App;

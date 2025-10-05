@@ -1,0 +1,213 @@
+/* General header container */
+header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Roboto", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ---------- Reset links ---------- */
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* ---------- Top Bar ---------- */
+.topBar {
+  background-color: #f5f5f5;
+  padding: 0.4rem 2rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.topBar ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.topBar ul li a,
+.topBar ul li span {
+  text-decoration: none;
+  color: #111;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.topBar ul li a:hover,
+.topBar ul li span:hover {
+  color: #ff6600;
+}
+
+/* ---------- Main Header ---------- */
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/* Logo */
+.logo a {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111;
+  text-decoration: none;
+}
+
+/* Main menu */
+.mainMenu ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mainMenu ul li a {
+  text-decoration: none !important;
+  color: #111 !important;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.mainMenu ul li a:hover {
+  color: #ff6600 !important;
+}
+
+/* Active NavLink (react-router-dom) */
+.mainMenu ul li a.active {
+  color: #111 !important;
+  text-decoration: none !important;
+}
+
+/* Search + Wishlist + Cart */
+.searchCart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.searchCart input[type="text"] {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 200px;
+  transition: width 0.3s ease;
+}
+
+.searchCart input[type="text"]:focus {
+  width: 250px;
+  border-color: #ff6600;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+  color: #111;
+}
+
+.icons a {
+  color: #111;
+  transition: color 0.2s ease-in-out;
+}
+
+.icons a:hover {
+  color: #ff6600;
+}
+
+/* Dropdown menu */
+.userMenu {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 25px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  padding: 0.5rem;
+  z-index: 100;
+}
+
+.dropdownMenu .logoutBtn {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdownMenu .logoutBtn:hover {
+  background-color: #e55b00;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .mainMenu ul {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .searchCart input[type="text"] {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .mainMenu ul {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .searchCart {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+/* ---------- Global styles ---------- */
+* {
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  cursor: url("./images/cursor.png"), auto;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.greenColor {
+  color: green !important;
+}
+.redColor {
+  color: red !important;
+}

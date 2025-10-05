@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Apple iPhone 14",
+    "description": "Latest iPhone model with A15 chip.",
+    "price": 79999,
+    "ratings": 4.5,
+    "images": [
+      {
+        "public_id": "iphone14_img1",
+        "url": "https://example.com/iphone14_img1.png"
+      }
+    ],
+    "category": "Electronics",
+    "stock": 50,
+    "numOfReviews": 0,
+    "reviews": []
+  },
+  {
+    "name": "Nike Air Max",
+    "description": "Comfortable running shoes.",
+    "price": 8999,
+    "ratings": 4.0,
+    "images": [
+      {
+        "public_id": "nikeair_img1",
+        "url": "https://example.com/nikeair_img1.png"
+      }
+    ],
+    "category": "Footwear",
+    "stock": 100,
+    "numOfReviews": 0,
+    "reviews": []
+  }
+]

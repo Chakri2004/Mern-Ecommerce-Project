@@ -1,0 +1,55 @@
+.confirmOrderPage {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.confirmSection {
+  margin-bottom: 25px;
+}
+
+.confirmSection h3 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.confirmItem {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.confirmItem img {
+  width: 60px;
+  margin-right: 15px;
+  border-radius: 6px;
+}
+
+.orderSummaryBox {
+  border-top: 2px solid #ddd;
+  padding-top: 20px;
+}
+
+.orderSummaryBox h3 {
+  margin-bottom: 10px;
+}
+
+.orderSummaryBox button {
+  width: 100%;
+  padding: 14px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.orderSummaryBox button:hover {
+  background: #444;
+}

@@ -1,0 +1,50 @@
+.heroBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 5%;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.bannerContent {
+  flex: 1;
+  min-width: 300px;
+}
+
+.bannerContent h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.bannerContent p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.bannerContent button {
+  padding: 0.8rem 2rem;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bannerContent button:hover {
+  background-color: #333;
+}
+
+.bannerImage {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.bannerImage img {
+  max-width: 100%;
+  border-radius: 10px;
+}

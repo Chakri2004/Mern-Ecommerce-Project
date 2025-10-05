@@ -1,0 +1,66 @@
+.help-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4vmax 2vmax;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.help-page h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #000;
+  font-weight: bold;
+}
+
+.help-intro {
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.help-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.help-section {
+  flex: 1 1 300px; /* Minimum width 300px, expands as needed */
+  text-align: left; /* Align text inside each column to left */
+  margin-bottom: 30px;
+}
+
+.help-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #000;
+}
+
+.help-section p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.help-contact {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  padding-top: 40px;
+  margin-top: 30px;
+}
+
+.help-contact h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.help-contact p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
