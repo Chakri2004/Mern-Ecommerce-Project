@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom"; // import history
+import { useHistory } from "react-router-dom"; 
 import "./JoinUs.css";
 import { FaGift, FaRunning, FaUsers, FaMobileAlt } from "react-icons/fa";
 
 const JoinUs = () => {
   const [activeFAQ, setActiveFAQ] = useState(null);
-  const history = useHistory(); // initialize history
+  const history = useHistory(); 
 
   const faqs = [
     { q: "What is Membership?", a: "Membership gives you exclusive access to products, rewards, and events." },
@@ -13,8 +13,7 @@ const JoinUs = () => {
     { q: "How do I join?", a: "Just click 'Sign Up' and create your account. It takes less than a minute." }
   ];
 
-  // Navigation handlers
-  const goToSignUp = () => history.push("/signup"); // main signup page
+  const goToSignUp = () => history.push("/signup"); 
   const goToShopApp = () => history.push("/signup");
   const goToRunClub = () => history.push("/signup");
   const goToTrainingClub = () => history.push("/signup");

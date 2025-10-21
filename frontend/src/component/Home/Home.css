@@ -131,7 +131,6 @@
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* ---------- Responsive ---------- */
 @media screen and (max-width: 1024px) {
   .auraCards {
     grid-template-columns: 1fr; 

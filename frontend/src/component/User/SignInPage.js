@@ -28,7 +28,11 @@ const SignInPage = ({ handleLogin }) => {
     <div className="authContainer">
       <div className="authBox">
         <div className="logo">
-          <h1 style={{ color: "#111", fontSize: "2.5rem" }}>AURA</h1>
+          <img
+            src="/Aura.png" 
+            alt="AURA Logo"
+            style={{ width: "50px", height: "auto" }}
+          />
         </div>
         <h2>Sign In to Aura</h2>
 
@@ -36,7 +40,7 @@ const SignInPage = ({ handleLogin }) => {
           <form onSubmit={handleCredentialsSubmit}>
             <input
               type="text"
-              placeholder="Username or Email"
+              placeholder="Email"
               value={usernameOrEmail}
               onChange={(e) => setUsernameOrEmail(e.target.value)}
               required
@@ -49,22 +53,22 @@ const SignInPage = ({ handleLogin }) => {
               required
             />
             <button type="submit">
-              Next <FiLogIn className="icon" />
+              Continue
             </button>
           </form>
         ) : (
           <form onSubmit={handleOtpSubmit}>
-            <p>Enter OTP sent to your registered mobile</p>
+            <p>Enter OTP sent to your registered Email</p>
             <input
               type="text"
-              placeholder="6-digit OTP"
+              placeholder="8-digit OTP"
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
-              maxLength={6}
+              maxLength={8}
               required
             />
             <button type="submit">
-              Verify <FiLogIn className="icon" />
+              SignIn
             </button>
           </form>
         )}

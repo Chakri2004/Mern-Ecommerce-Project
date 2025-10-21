@@ -1,53 +1,125 @@
-.paymentPage {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
-
-.paymentContainer {
+.payment-wrapper {
+  background-color: #fafafa;
+  min-height: 100vh;
   display: flex;
-  gap: 30px;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
 }
 
-.paymentOptions {
-  flex: 1;
-  border-right: 1px solid #ccc;
-  padding-right: 20px;
-}
-
-.paymentOptions label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.paymentDetails {
-  flex: 2;
-  padding-left: 20px;
-}
-
-.paymentDetails input {
-  display: block;
-  margin-bottom: 10px;
-  padding: 8px;
+.payment-card {
+  background: white;
   width: 100%;
+  max-width: 480px;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
-.orderSummary {
-  margin-top: 20px;
-  padding: 10px;
-  border-top: 1px solid #ccc;
+.payment-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.3rem;
 }
 
-.placeOrderBtn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #007bff;
-  color: white;
-  border: none;
+.payment-subtext {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1.8rem;
+  font-size: 0.9rem;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.option {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   cursor: pointer;
-  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-.placeOrderBtn:hover {
-  background: #0056b3;
+.option.active {
+  border-color: #000;
+  background-color: #000;
+  color: white;
+}
+
+.option input {
+  accent-color: black;
+}
+
+.payment-details {
+  margin-top: 1.8rem;
+}
+
+.payment-details input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.2s;
+}
+
+.payment-details input:focus {
+  border-color: #000;
+}
+
+.card-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.order-summary {
+  margin-top: 2rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.order-summary h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.summary-line,
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.summary-total {
+  font-weight: 700;
+  border-top: 1px solid #ddd;
+  padding-top: 0.7rem;
+}
+
+.place-order-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+.place-order-btn:hover {
+  background-color: #333;
 }

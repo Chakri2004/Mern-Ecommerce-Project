@@ -4,14 +4,13 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// Register
 router.post("/register", async (req, res) => {
   try {
-    const { name, email, password, phone, avatar } = req.body;
+    const { name, email, password } = req.body;
     let user = await User.findOne({ email });
     if (user) return res.status(400).json({ message: "Email already exists" });
 
-    user = new User({ name, email, password, phone, avatar: { public_id: "temp", url: avatar } });
+    user = new User({ name, email, password });
     await user.save();
 
     const token = user.getJWTToken();
@@ -21,7 +20,6 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) return res.status(400).json({ message: "Email & password required" });

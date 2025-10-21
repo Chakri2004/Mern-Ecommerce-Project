@@ -5,15 +5,12 @@ import "./Footer.css";
 const Footer = ({ country = "India" }) => {
   return (
     <footer id="footer">
-      {/* Country Display */}
       <div className="countryDisplay">
         <p>Country / Region: {country}</p>
       </div>
 
       <div className="topFooter">
-        {/* Left Section: All Columns */}
         <div className="footer-section leftFooter">
-          {/* Resources */}
           <div className="footer-column">
             <h4>Resources</h4>
             <ul>
@@ -25,7 +22,6 @@ const Footer = ({ country = "India" }) => {
             </ul>
           </div>
 
-          {/* Company */}
           <div className="footer-column">
             <h4>Company</h4>
             <ul>
@@ -37,7 +33,6 @@ const Footer = ({ country = "India" }) => {
             </ul>
           </div>
 
-          {/* More */}
           <div className="footer-column">
             <h4>More</h4>
             <ul>
@@ -48,7 +43,6 @@ const Footer = ({ country = "India" }) => {
             </ul>
           </div>
 
-          {/* Help & Contact */}
           <div className="footer-column">
             <h4>Help & Contact</h4>
             <ul>
@@ -60,7 +54,6 @@ const Footer = ({ country = "India" }) => {
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="footer-section rightFooter">
           <p>High Quality is our first priority</p>
           <p>Stay updated with our latest products and offers</p>

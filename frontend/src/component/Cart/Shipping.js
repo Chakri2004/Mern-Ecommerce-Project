@@ -1,4 +1,3 @@
-// src/component/Cart/Shipping.js
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -38,10 +37,8 @@ const countryStateData = {
 const Shipping = () => {
   const history = useHistory();
 
-  // 🛒 Get cart items from Redux
   const { cartItems } = useSelector((state) => state.cart);
 
-  // Calculate totals
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -49,7 +46,6 @@ const Shipping = () => {
   const shippingFee = 300;
   const total = subtotal + shippingFee;
 
-  // Form state
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -74,7 +70,6 @@ const Shipping = () => {
 
   return (
     <div className="checkoutContainer">
-      {/* Left Side */}
       <div className="checkoutLeft">
         <h2>Shipping Details</h2>
         <form onSubmit={handleSubmit}>
@@ -122,7 +117,6 @@ const Shipping = () => {
             required
           />
 
-          {/* Country Dropdown */}
           <select
             name="country"
             value={form.country}
@@ -136,7 +130,6 @@ const Shipping = () => {
             ))}
           </select>
 
-          {/* State/District Dropdown */}
           <select
             name="state"
             value={form.state}
@@ -155,7 +148,6 @@ const Shipping = () => {
         </form>
       </div>
 
-      {/* Right Side */}
       <div className="checkoutRight">
         <h3>Order Summary</h3>
         <p>Subtotal: ₹{subtotal.toLocaleString()}</p>

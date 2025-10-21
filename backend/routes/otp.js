@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const sendEmail = require("../utils/sendEmail");
-const otpStore = {}; // { email: { otp, expires } }
+const otpStore = {}; 
 
 const generateOtp = () => Math.floor(100000 + Math.random() * 900000).toString();
 

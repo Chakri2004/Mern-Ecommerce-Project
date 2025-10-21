@@ -64,14 +64,12 @@ const LoginSignUp = () => {
           </div>
           <button ref={switcherTab}></button>
 
-          {/* Login Form */}
           <form className="loginForm" ref={loginTab}>
             <input type="email" placeholder="Email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
             <input type="password" placeholder="Password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} />
             <input type="submit" value="Login" className="loginBtn" />
           </form>
 
-          {/* Register Form */}
           <form className="signUpForm" ref={registerTab} encType="multipart/form-data" onSubmit={registerSubmit}>
             <input type="text" placeholder="Name" name="name" value={name} onChange={registerDataChange} required />
             <input type="email" placeholder="Email" name="email" value={email} onChange={registerDataChange} required />

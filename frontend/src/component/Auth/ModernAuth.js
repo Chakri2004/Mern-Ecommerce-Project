@@ -4,7 +4,6 @@ import { useHistory, useLocation } from "react-router-dom";
 import { FaPlane, FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
-import "./ModernAuth.css";
 
 const ModernAuth = () => {
   const dispatch = useDispatch();
@@ -17,13 +16,11 @@ const ModernAuth = () => {
   const [activeTab, setActiveTab] = useState("signin");
   const [showError, setShowError] = useState(false);
 
-  // Sign In Form
   const [signInData, setSignInData] = useState({
     email: "",
     password: "",
   });
 
-  // Sign Up Form
   const [signUpData, setSignUpData] = useState({
     fullName: "",
     email: "",
@@ -35,14 +32,12 @@ const ModernAuth = () => {
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
-  // Handle Sign In
   const handleSignIn = (e) => {
     e.preventDefault();
     setShowError(false);
     dispatch(login(signInData.email, signInData.password));
   };
 
-  // Handle Sign Up
   const handleSignUp = (e) => {
     e.preventDefault();
     setShowError(false);
@@ -55,28 +50,24 @@ const ModernAuth = () => {
     if (avatar) {
       formData.set("avatar", avatar);
     } else {
-      // Use default avatar
       formData.set("avatar", "/Profile.png");
     }
 
     dispatch(register(formData));
   };
 
-  // Handle input changes for Sign In
   const handleSignInChange = (e) => {
     const { name, value } = e.target;
     setSignInData(prev => ({ ...prev, [name]: value }));
     if (showError) setShowError(false);
   };
 
-  // Handle input changes for Sign Up
   const handleSignUpChange = (e) => {
     const { name, value } = e.target;
     setSignUpData(prev => ({ ...prev, [name]: value }));
     if (showError) setShowError(false);
   };
 
-  // Handle avatar change
   const handleAvatarChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -122,7 +113,6 @@ const ModernAuth = () => {
   return (
     <div className="modern-auth-container">
       <div className="modern-auth-box">
-        {/* Logo and Title */}
         <div className="auth-header">
           <div className="auth-logo">
             <FaPlane />
@@ -131,7 +121,6 @@ const ModernAuth = () => {
           <p className="auth-subtitle">Your next shopping adventure awaits</p>
         </div>
 
-        {/* Tab Navigation */}
         <div className="auth-tabs">
           <button
             className={`tab-button ${activeTab === "signin" ? "active" : ""}`}
@@ -147,7 +136,6 @@ const ModernAuth = () => {
           </button>
         </div>
 
-        {/* Error Message */}
         {showError && error && (
           <div className="modern-error-message">
             <span className="error-title">Error</span>
@@ -155,7 +143,6 @@ const ModernAuth = () => {
           </div>
         )}
 
-        {/* Sign In Form */}
         {activeTab === "signin" && (
           <form onSubmit={handleSignIn} className="auth-form">
             <div className="form-group">
@@ -196,7 +183,6 @@ const ModernAuth = () => {
           </form>
         )}
 
-        {/* Sign Up Form */}
         {activeTab === "signup" && (
           <form onSubmit={handleSignUp} className="auth-form">
             <div className="form-group">

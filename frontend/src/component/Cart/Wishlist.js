@@ -13,19 +13,34 @@ const Wishlist = () => {
 
   return (
     <div className="wishlistPage">
-      <h1>Your Wishlist</h1>
+      <h1 className="wishlistTitle">Your Wishlist</h1>
+
       {wishlistItems.length === 0 ? (
-        <p>No items in your wishlist.</p>
+        <div className="emptyWishlist">
+          <img src="/images/empty_wishlist.png" alt="Empty Wishlist" />
+          <p>Your wishlist is empty. Start adding your favorites!</p>
+        </div>
       ) : (
-        <div className="wishlistItems">
+        <div className="wishlistGrid">
           {wishlistItems.map((item) => (
-            <div className="wishlistItem" key={item.id}>
-              <img src={item.image} alt={item.name} />
-              <div>
-                <h3>{item.name}</h3>
-                <p>₹{item.price}</p>
+            <div className="wishlistCard" key={item.id}>
+              <div className="wishlistImageContainer">
+                <img src={item.image} alt={item.name} className="wishlistImage" />
               </div>
-              <button onClick={() => removeItem(item.id)}>Remove</button>
+
+              <div className="wishlistInfo">
+                <h3 className="wishlistName">{item.name}</h3>
+                <p className="wishlistPrice">₹{item.price}</p>
+                <div className="wishlistButtons">
+                  <button
+                    className="removeBtn"
+                    onClick={() => removeItem(item.id)}
+                  >
+                    Remove
+                  </button>
+                  <button className="addToCartBtn">Add to Cart</button>
+                </div>
+              </div>
             </div>
           ))}
         </div>

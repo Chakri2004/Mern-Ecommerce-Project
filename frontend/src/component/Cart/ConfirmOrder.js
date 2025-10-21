@@ -1,4 +1,3 @@
-// src/component/Cart/ConfirmOrder.js
 import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -8,7 +7,6 @@ const ConfirmOrder = () => {
   const history = useHistory();
   const { cartItems } = useSelector((state) => state.cart);
 
-  // shipping info would usually be saved in redux/localStorage from Shipping.js
   const shippingInfo = JSON.parse(localStorage.getItem("shippingInfo")) || {};
 
   const subtotal = cartItems.reduce(
@@ -26,7 +24,6 @@ const ConfirmOrder = () => {
     <div className="confirmOrderPage">
       <h2>Confirm Your Order</h2>
 
-      {/* Shipping Info */}
       <div className="confirmSection">
         <h3>Shipping Info</h3>
         <p><strong>Name:</strong> {shippingInfo.name || "N/A"}</p>
@@ -35,7 +32,6 @@ const ConfirmOrder = () => {
         <p><strong>Address:</strong> {shippingInfo.address}, {shippingInfo.city}, {shippingInfo.district}, {shippingInfo.state}, {shippingInfo.country}</p>
       </div>
 
-      {/* Cart Items */}
       <div className="confirmSection">
         <h3>Your Items</h3>
         {cartItems.map((item) => (
@@ -50,7 +46,6 @@ const ConfirmOrder = () => {
         ))}
       </div>
 
-      {/* Order Summary */}
       <div className="orderSummaryBox">
         <h3>Order Summary</h3>
         <p>Subtotal: ₹ {subtotal.toLocaleString()}</p>

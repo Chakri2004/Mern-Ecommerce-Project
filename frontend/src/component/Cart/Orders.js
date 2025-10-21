@@ -1,4 +1,3 @@
-// src/component/Cart/Orders.js
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "./Orders.css";

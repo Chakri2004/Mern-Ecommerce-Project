@@ -15,18 +15,15 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
-// Routes
 const otpRoutes = require("./routes/otp");
 const authRoutes = require("./routes/auth");
 app.use("/api/otp", otpRoutes);
 app.use("/api/auth", authRoutes);
 
-// Connect MongoDB
 mongoose.connect(process.env.DB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error(err));
 
-// Serve frontend
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "../frontend/build/index.html")));
 

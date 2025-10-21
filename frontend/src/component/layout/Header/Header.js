@@ -18,7 +18,6 @@ const Header = ({ isLoggedIn, handleLogout }) => {
 
   return (
     <header className="header">
-      {/* Top Bar */}
       <div className="topBar">
         <ul>
           <li><Link to="/find-store">Find a Store</Link></li>
@@ -36,14 +35,11 @@ const Header = ({ isLoggedIn, handleLogout }) => {
         </ul>
       </div>
 
-      {/* Main Header */}
       <div className="mainHeader">
-        {/* Logo */}
         <div className="logo">
           <Link to="/">AURA</Link>
         </div>
 
-        {/* Navigation Menu */}
         <nav className="mainMenu">
           <ul>
             <li><Link to="/new-featured">New & Featured</Link></li>
@@ -55,7 +51,6 @@ const Header = ({ isLoggedIn, handleLogout }) => {
           </ul>
         </nav>
 
-        {/* Search + Wishlist + Cart */}
         <div className="searchCart">
           <form onSubmit={submitHandler} className="headerSearchForm">
             <div className="searchInputWrapper">

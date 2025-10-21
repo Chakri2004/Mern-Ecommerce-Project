@@ -1,4 +1,3 @@
-// actions/wishlistAction.js
 export const addToWishlist = (item) => (dispatch, getState) => {
   dispatch({
     type: "ADD_TO_WISHLIST",

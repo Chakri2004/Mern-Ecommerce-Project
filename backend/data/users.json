@@ -12,7 +12,7 @@
   {
     "name": "John Doe",
     "email": "john@example.com",
-    "password": "123456",
+    "password": "12345678",
     "role": "user",
     "avatar": {
       "public_id": "sample_avatar_id_2",

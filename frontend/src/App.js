@@ -15,11 +15,8 @@ import Home from "./component/Home/Home";
 import Products from "./component/Product/Products";
 import ProductDetails from "./component/Product/ProductDetails";
 import Search from "./component/Product/Search";
-import SignInPage from "./component/layout/Pages/SignInPage";
 import Help from "./component/layout/Pages/Help";
 import JoinUs from "./component/layout/Pages/JoinUs";
-import SignUpPage from "./component/layout/Pages/SignUpPage";
-import VerifySignUpPage from "./component/layout/Pages/VerifySignUpPage";
 import ShopAppPage from "./component/layout/Pages/ShopAppPage";
 import RunClubPage from "./component/layout/Pages/RunClubPage";
 import TrainingClubPage from "./component/layout/Pages/TrainingClubPage";
@@ -70,6 +67,7 @@ import OrderStatus from "./component/layout/Pages/OrderStatus";
 import DispatchDelivery from "./component/layout/Pages/DispatchDelivery";
 import TermsOfSale from "./component/layout/Pages/TermsOfSale";
 import TermsOfUse from "./component/layout/Pages/TermsOfUse";
+import LiveChatBot from "./component/layout/Pages/LiveChatBot";
 
 import AuraVoyagerJerseyCollection from "./component/collection/AuraVoyagerJerseyCollection";
 import AuraStellarCollection from "./component/collection/AuraStellarCollection";
@@ -92,6 +90,9 @@ import UpdateProfile from "./component/User/UpdateProfile";
 import UpdatePassword from "./component/User/UpdatePassword";
 import ForgotPassword from "./component/User/ForgotPassword";
 import ResetPassword from "./component/User/ResetPassword";
+import SignInPage from "./component/User/SignInPage";
+import SignUpPage from "./component/User/SignUpPage";
+import VerifySignUpPage from "./component/User/VerifySignUpPage";
 
 import "./component/layout/Pages/Pages.css";
 
@@ -189,6 +190,7 @@ function App() {
             <Route exact path="/news" component={News} />
             <Route exact path="/report" component={Report} />
             <Route exact path="/contact" component={Contact} />
+            <Route exact path="/LiveChatBot" component={LiveChatBot} />
             <Route exact path="/about" component={About} />
             <Route path="/support" component={Support} />
             <Route path="/faqs" component={FAQs} />

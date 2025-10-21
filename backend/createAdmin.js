@@ -1,12 +1,10 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const bcrypt = require("bcryptjs");
-const User = require("./models/userModel"); // adjust path if needed
+const User = require("./models/userModel");
 
-// Load config
 dotenv.config({ path: "backend/config/config.env" });
 
-// Connect to MongoDB
 mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -14,15 +12,13 @@ mongoose.connect(process.env.DB_URI, {
 .then(() => console.log("MongoDB Connected"))
 .catch((err) => console.log(err));
 
-// Admin user data
 const adminData = {
   name: "Admin User",
   email: "admin@example.com",
-  password: "admin123", // your new password
+  password: "admin123", 
   role: "admin",
 };
 
-// Create admin user
 const createAdmin = async () => {
   try {
     const userExist = await User.findOne({ email: adminData.email });

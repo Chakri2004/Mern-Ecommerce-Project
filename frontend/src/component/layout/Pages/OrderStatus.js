@@ -17,8 +17,6 @@ const OrderStatus = () => {
       setStatus("⚠️ Please enter a valid order ID.");
       return;
     }
-
-    // Check in mock database
     if (mockOrders[orderId]) {
       setStatus(mockOrders[orderId]);
     } else {

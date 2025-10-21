@@ -9,17 +9,14 @@ dotenv.config({ path: "backend/config/config.env" });
 
 const app = express();
 
-// Middleware
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
 
-// Routes
 const otpRoutes = require("./routes/otp");
 app.use("/api/otp", otpRoutes);
 
-// Serve React frontend
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));

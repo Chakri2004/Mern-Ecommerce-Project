@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const OTPLogin = ({ handleLogin }) => {
-  const [identifier, setIdentifier] = useState(""); // email or phone
+  const [identifier, setIdentifier] = useState("");
   const [otp, setOtp] = useState("");
-  const [step, setStep] = useState(1); // 1 = enter email/phone, 2 = enter OTP
+  const [step, setStep] = useState(1);
 
   const sendOtp = async () => {
     try {
@@ -20,7 +20,7 @@ const OTPLogin = ({ handleLogin }) => {
     try {
       const res = await axios.post("/api/otp/verify-otp", { identifier, otp });
       console.log("UserId:", res.data.userId);
-      handleLogin(); // set global login state
+      handleLogin();
       alert("OTP verified! Logged in.");
     } catch (err) {
       alert(err.response.data.message || "Invalid OTP");
@@ -33,7 +33,7 @@ const OTPLogin = ({ handleLogin }) => {
         <div>
           <input
             type="text"
-            placeholder="Email or Phone"
+            placeholder="Email"
             value={identifier}
             onChange={(e) => setIdentifier(e.target.value)}
           />

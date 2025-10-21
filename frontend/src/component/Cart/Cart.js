@@ -24,7 +24,7 @@ const Cart = () => {
 
   const checkoutHandler = () => {
     const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    const shippingFee = 300; // fixed shipping fee
+    const shippingFee = 300; 
     const total = subtotal + shippingFee;
 
     localStorage.setItem(

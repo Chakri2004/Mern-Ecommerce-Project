@@ -38,7 +38,6 @@ import {
 } from "../constants/userConstants";
 import axios from "axios";
 
-// Login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
@@ -57,7 +56,6 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-// Register
 export const register = (userData) => async (dispatch) => {
   try {
     dispatch({ type: REGISTER_USER_REQUEST });
@@ -75,7 +73,6 @@ export const register = (userData) => async (dispatch) => {
   }
 };
 
-// Load User
 export const loadUser = () => async (dispatch) => {
   try {
     dispatch({ type: LOAD_USER_REQUEST });
@@ -88,7 +85,6 @@ export const loadUser = () => async (dispatch) => {
   }
 };
 
-// Logout User
 export const logout = () => async (dispatch) => {
   try {
     await axios.get(`/api/v1/logout`);
@@ -99,7 +95,6 @@ export const logout = () => async (dispatch) => {
   }
 };
 
-// Update Profile
 export const updateProfile = (userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PROFILE_REQUEST });
@@ -117,7 +112,6 @@ export const updateProfile = (userData) => async (dispatch) => {
   }
 };
 
-// Update Password
 export const updatePassword = (passwords) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_PASSWORD_REQUEST });
@@ -139,7 +133,6 @@ export const updatePassword = (passwords) => async (dispatch) => {
   }
 };
 
-// Forgot Password
 export const forgotPassword = (email) => async (dispatch) => {
   try {
     dispatch({ type: FORGOT_PASSWORD_REQUEST });
@@ -157,7 +150,6 @@ export const forgotPassword = (email) => async (dispatch) => {
   }
 };
 
-// Reset Password
 export const resetPassword = (token, passwords) => async (dispatch) => {
   try {
     dispatch({ type: RESET_PASSWORD_REQUEST });
@@ -179,7 +171,6 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
   }
 };
 
-// get All Users
 export const getAllUsers = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_USERS_REQUEST });
@@ -191,7 +182,6 @@ export const getAllUsers = () => async (dispatch) => {
   }
 };
 
-// get  User Details
 export const getUserDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: USER_DETAILS_REQUEST });
@@ -203,7 +193,6 @@ export const getUserDetails = (id) => async (dispatch) => {
   }
 };
 
-// Update User
 export const updateUser = (id, userData) => async (dispatch) => {
   try {
     dispatch({ type: UPDATE_USER_REQUEST });
@@ -225,7 +214,6 @@ export const updateUser = (id, userData) => async (dispatch) => {
   }
 };
 
-// Delete User
 export const deleteUser = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_USER_REQUEST });
@@ -241,7 +229,6 @@ export const deleteUser = (id) => async (dispatch) => {
   }
 };
 
-// Clearing Errors
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
 };

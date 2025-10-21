@@ -1,7 +1,5 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { thunk } from "redux-thunk";
-
-// Reducers
 import { wishlistReducer } from "./reducers/wishlistReducer";
 import {
   newProductReducer,
@@ -12,7 +10,6 @@ import {
   productsReducer,
   reviewReducer,
 } from "./reducers/productReducer";
-
 import {
   allUsersReducer,
   forgotPasswordReducer,
@@ -20,9 +17,7 @@ import {
   userDetailsReducer,
   userReducer,
 } from "./reducers/userReducer";
-
 import { cartReducer } from "./reducers/cartReducer";
-
 import {
   allOrdersReducer,
   myOrdersReducer,
@@ -31,7 +26,6 @@ import {
   orderReducer,
 } from "./reducers/orderReducer";
 
-// Combine reducers
 const rootReducer = combineReducers({
   wishlist: wishlistReducer,
   products: productsReducer,
@@ -57,7 +51,6 @@ const rootReducer = combineReducers({
   allOrders: allOrdersReducer,
 });
 
-// Initial state
 const initialState = {
   cart: {
     cartItems: localStorage.getItem("cartItems")
@@ -69,16 +62,13 @@ const initialState = {
   },
 };
 
-// Middleware
 const middleware = [thunk];
 
-// Safe compose for DevTools
 const composeEnhancers =
   (typeof window !== "undefined" &&
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
-// Create store
 const store = createStore(
   rootReducer,
   initialState,

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const fs = require("fs");
-const bcrypt = require("bcryptjs"); // <-- add this
+const bcrypt = require("bcryptjs"); 
 const Product = require("./models/productModel");
 const User = require("./models/userModel");
 
@@ -18,7 +18,6 @@ mongoose
 const products = JSON.parse(fs.readFileSync(`${__dirname}/data/products.json`, "utf-8"));
 const users = JSON.parse(fs.readFileSync(`${__dirname}/data/users.json`, "utf-8"));
 
-// Hash passwords
 const usersWithHashedPasswords = users.map(user => ({
   ...user,
   password: bcrypt.hashSync(user.password, 10)

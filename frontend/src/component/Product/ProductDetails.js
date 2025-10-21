@@ -98,7 +98,7 @@ const ProductDetails = () => {
 
     const newReview = {
       _id: Date.now().toString(),
-      name: "You", // Replace with logged-in user name if available
+      name: "You", 
       rating,
       comment,
     };
@@ -113,7 +113,6 @@ const ProductDetails = () => {
   return (
     <Fragment>
       <div className="ProductDetails">
-        {/* Image Gallery */}
         <div className="image-gallery-container">
           <div className="thumbnail-list">
             {product.images?.map((item, i) => (
@@ -138,7 +137,6 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        {/* Product Info */}
         <div className="detailsContainer">
           <h2>{product.name}</h2>
           <p>Product # {product._id}</p>
@@ -202,7 +200,6 @@ const ProductDetails = () => {
             Submit Review
           </button>
 
-          {/* Specifications below Submit Review */}
           {product.specifications && (
             <div className="specificationsSection">
               <Typography variant="h6" gutterBottom>
@@ -228,7 +225,6 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      {/* Review Dialog */}
       <Dialog open={open} onClose={() => setOpen(false)} maxWidth="md" fullWidth>
         <DialogTitle>Submit Review - {product.name}</DialogTitle>
         <DialogContent>
@@ -265,7 +261,6 @@ const ProductDetails = () => {
         </DialogActions>
       </Dialog>
 
-      {/* Reviews Section */}
       {reviews.length > 0 ? (
         <div className="reviewsSection">
           {reviews.map((review) => (

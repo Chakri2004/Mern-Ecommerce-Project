@@ -7,7 +7,6 @@ const Report = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can send the report data to backend API
     console.log("Report Submitted:", { category, description });
     setSubmitted(true);
     setCategory("");
@@ -47,7 +46,6 @@ const Report = () => {
             <option key={idx} value={cat}>{cat}</option>
           ))}
         </select>
-
         <label style={{ display: "block", marginBottom: "0.5rem", fontWeight: "bold" }}>Description</label>
         <textarea
           value={description}
@@ -56,7 +54,6 @@ const Report = () => {
           placeholder="Describe the issue..."
           style={{ width: "100%", padding: "0.5rem", marginBottom: "1.5rem", borderRadius: "5px", border: "1px solid #ccc", minHeight: "120px" }}
         />
-
         <button
           type="submit"
           style={{ padding: "0.6rem 1.2rem", background: "#0077cc", color: "#fff", border: "none", borderRadius: "5px", cursor: "pointer" }}

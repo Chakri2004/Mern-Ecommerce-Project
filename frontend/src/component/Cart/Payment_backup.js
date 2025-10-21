@@ -46,7 +46,6 @@ const Payment = () => {
     <div className="paymentPage">
       <h2>Payment</h2>
       <div className="paymentContainer">
-        {/* LEFT SIDE */}
         <div className="paymentOptions">
           <h3>Select Payment Method</h3>
           <label>
@@ -77,8 +76,7 @@ const Payment = () => {
             Debit / Credit Card
           </label>
         </div>
-
-        {/* RIGHT SIDE */}
+        
         <div className="paymentDetails">
           {paymentMethod === "upi" && (
             <div>
@@ -141,7 +139,6 @@ const Payment = () => {
         </div>
       </div>
 
-      {/* ORDER SUMMARY */}
       <div className="orderSummary">
         <h3>Order Summary</h3>
         <p>Subtotal: ₹{orderInfo.subtotal}</p>

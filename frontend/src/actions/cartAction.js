@@ -4,9 +4,7 @@ import {
   SAVE_SHIPPING_INFO,
 } from "../constants/cartConstants";
 
-import auraItems from "../data/auraItems"; // ✅ use your local data
-
-// helper: find product in all auraItems categories
+import auraItems from "../data/auraItems"; 
 const findProductById = (id) => {
   const categories = [
     "newfeatured",
@@ -23,7 +21,6 @@ const findProductById = (id) => {
   return null;
 };
 
-// Add to Cart
 export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
   const product = findProductById(id);
 
@@ -47,7 +44,6 @@ export const addItemsToCart = (id, quantity) => async (dispatch, getState) => {
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-// REMOVE FROM CART
 export const removeItemsFromCart = (id) => async (dispatch, getState) => {
   dispatch({
     type: REMOVE_CART_ITEM,
@@ -57,7 +53,6 @@ export const removeItemsFromCart = (id) => async (dispatch, getState) => {
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-// SAVE SHIPPING INFO
 export const saveShippingInfo = (data) => async (dispatch) => {
   dispatch({
     type: SAVE_SHIPPING_INFO,

@@ -26,6 +26,15 @@ const Search = () => {
       ...(auraItems.AuraStellarCollection || []),
       ...(auraItems.AuraEclipseCollection || []),
       ...(auraItems.AuraNovaCollection || []),
+      ...(auraItems.Basketball || []),
+      ...(auraItems.Football || []),
+      ...(auraItems.Running || []),
+      ...(auraItems.Badminton || []),
+      ...(auraItems.Tennis || []),
+      ...(auraItems.Cricket || []),
+      ...(auraItems.Golf || []),
+      ...(auraItems.Rugby || []),
+      ...(auraItems.skateboarding || []),
     ];
 
     if (keyword.trim() !== "") {

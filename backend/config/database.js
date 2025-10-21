@@ -5,7 +5,6 @@ const connectDatabase = () => {
     console.error("DB_URI is not defined in .env");
     process.exit(1);
   }
-
   mongoose
     .connect(process.env.DB_URI, {
       useNewUrlParser: true,

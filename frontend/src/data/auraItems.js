@@ -380,7 +380,7 @@ const auraItems = {
       reviews: [{ _id: "rev22", name: "Ava", rating: 4.9, comment: "Exclusive and premium!" }]
     },
     {
-      _id: "c1",
+      _id: "cs1",
       name: "Aura Trendy Sneakers",
       price: 14000,
       description: "Fashionable sneakers for urban street style, lightweight and versatile.",
@@ -395,7 +395,7 @@ const auraItems = {
       reviews: [{ _id: "rev4", name: "Mia", rating: 5, comment: "Super stylish!" }]
     },
     {
-      _id: "c2",
+      _id: "cs2",
       name: "Aura Casual Sliders",
       price: 12000,
       description: "Stylish casual shoes for everyday wear.",
@@ -892,7 +892,7 @@ const auraItems = {
 
   cricket: [
     { _id: "c1", name: "Aura Cricket Jersey", price: 3999, Stock: 10, ratings: 4.7, numOfReviews: 0, images: [{ url: "/images/cricket/cricketjersey1.png" },{ url: "/images/cricket/cricketjersey2.png" },{ url: "/images/cricket/cricketjersey3.png" }], description: "Durable cricket jersey." },
-    { _id: "c1", name: "Aura Test Cricket Jersey", price: 3999, Stock: 10, ratings: 4.7, numOfReviews: 0, images: [{ url: "/images/cricket/testcricketjersey1.png" },{ url: "/images/cricket/testcricketjersey2.png" },{ url: "/images/cricket/testcricketjersey3.png" }], description: "Durable test cricket jersey." },
+    { _id: "c2", name: "Aura Test Cricket Jersey", price: 3999, Stock: 10, ratings: 4.7, numOfReviews: 0, images: [{ url: "/images/cricket/testcricketjersey1.png" },{ url: "/images/cricket/testcricketjersey2.png" },{ url: "/images/cricket/testcricketjersey3.png" }], description: "Durable test cricket jersey." },
     { _id: "c3", name: "Aura Cricket Shoes", price: 6999, Stock: 8, ratings: 4.6, numOfReviews: 0, images: [{ url: "/images/cricket/cricketshoes1.png" },{ url: "/images/cricket/cricketshoes2.png" },{ url: "/images/cricket/cricketshoes3.png" }], description: "Comfortable cricket shoes." },
     { _id: "c4", name: "Aura Cricket Cap", price: 999, Stock: 15, ratings: 4.5, numOfReviews: 0, images: [{ url: "/images/cricket/cricketcap1.png" },{ url: "/images/cricket/cricketcap2.png" }], description: "Lightweight cricket cap." },
     { _id: "c5", name: "Aura Test Cricket Cap", price: 999, Stock: 15, ratings: 4.5, numOfReviews: 0, images: [{ url: "/images/cricket/testcricketcap1.png" },{ url: "/images/cricket/testcricketcap2.png" }], description: "Lightweight cricket cap." },

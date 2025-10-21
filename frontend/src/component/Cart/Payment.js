@@ -34,58 +34,57 @@ const Payment = () => {
     };
 
     localStorage.setItem("orders", JSON.stringify([...existingOrders, newOrder]));
-
     localStorage.setItem("orderInfo", JSON.stringify(orderInfo));
-
     localStorage.removeItem("cartItems");
 
     history.push("/order-success");
   };
 
   return (
-    <div className="paymentPage">
-      <h2>Payment</h2>
-      <div className="paymentContainer">
-        {/* LEFT SIDE */}
-        <div className="paymentOptions">
-          <h3>Select Payment Method</h3>
-          <label>
+    <div className="payment-wrapper">
+      <div className="payment-card">
+        <h2 className="payment-title">Secure Payment</h2>
+        <p className="payment-subtext">Select your preferred payment method</p>
+
+        <div className="payment-options">
+          <label className={`option ${paymentMethod === "cod" ? "active" : ""}`}>
             <input
               type="radio"
               value="cod"
               checked={paymentMethod === "cod"}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
-            Cash on Delivery
+            <span>Cash on Delivery</span>
           </label>
-          <label>
+
+          <label className={`option ${paymentMethod === "upi" ? "active" : ""}`}>
             <input
               type="radio"
               value="upi"
               checked={paymentMethod === "upi"}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
-            UPI / Net Banking
+            <span>UPI / Net Banking</span>
           </label>
-          <label>
+
+          <label className={`option ${paymentMethod === "card" ? "active" : ""}`}>
             <input
               type="radio"
               value="card"
               checked={paymentMethod === "card"}
               onChange={(e) => setPaymentMethod(e.target.value)}
             />
-            Debit / Credit Card
+            <span>Debit / Credit Card</span>
           </label>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="paymentDetails">
+        <div className="payment-details">
           {paymentMethod === "upi" && (
             <div>
-              <h3>Enter UPI Details</h3>
+              <h4>Enter UPI ID</h4>
               <input
                 type="text"
-                placeholder="Enter UPI ID"
+                placeholder="example@upi"
                 value={upiId}
                 onChange={(e) => setUpiId(e.target.value)}
               />
@@ -93,8 +92,8 @@ const Payment = () => {
           )}
 
           {paymentMethod === "card" && (
-            <div>
-              <h3>Enter Card Details</h3>
+            <div className="card-inputs">
+              <h4>Card Information</h4>
               <input
                 type="text"
                 placeholder="Card Number"
@@ -104,23 +103,25 @@ const Payment = () => {
                   setCardDetails({ ...cardDetails, number: e.target.value })
                 }
               />
-              <input
-                type="text"
-                placeholder="Expiry (MM/YY)"
-                value={cardDetails.expiry}
-                onChange={(e) =>
-                  setCardDetails({ ...cardDetails, expiry: e.target.value })
-                }
-              />
-              <input
-                type="password"
-                placeholder="CVV"
-                maxLength="3"
-                value={cardDetails.cvv}
-                onChange={(e) =>
-                  setCardDetails({ ...cardDetails, cvv: e.target.value })
-                }
-              />
+              <div className="card-row">
+                <input
+                  type="text"
+                  placeholder="MM/YY"
+                  value={cardDetails.expiry}
+                  onChange={(e) =>
+                    setCardDetails({ ...cardDetails, expiry: e.target.value })
+                  }
+                />
+                <input
+                  type="password"
+                  placeholder="CVV"
+                  maxLength="3"
+                  value={cardDetails.cvv}
+                  onChange={(e) =>
+                    setCardDetails({ ...cardDetails, cvv: e.target.value })
+                  }
+                />
+              </div>
               <input
                 type="text"
                 placeholder="Cardholder Name"
@@ -133,25 +134,33 @@ const Payment = () => {
           )}
 
           {paymentMethod === "cod" && (
-            <div>
-              <h3>Cash on Delivery</h3>
-              <p>You will pay at the time of delivery.</p>
+            <div className="cod-box">
+              <h4>Cash on Delivery</h4>
+              <p>You can pay securely at your doorstep when the order arrives.</p>
             </div>
           )}
         </div>
-      </div>
 
-      {/* ORDER SUMMARY */}
-      <div className="orderSummary">
-        <h3>Order Summary</h3>
-        <p>Subtotal: ₹{orderInfo.subtotal}</p>
-        <p>Shipping Fee: ₹{orderInfo.shippingFee}</p>
-        <h4>Total: ₹{orderInfo.total}</h4>
-      </div>
+        <div className="order-summary">
+          <h3>Order Summary</h3>
+          <div className="summary-line">
+            <span>Subtotal</span>
+            <span>₹{orderInfo.subtotal}</span>
+          </div>
+          <div className="summary-line">
+            <span>Shipping Fee</span>
+            <span>₹{orderInfo.shippingFee}</span>
+          </div>
+          <div className="summary-total">
+            <span>Total</span>
+            <span>₹{orderInfo.total}</span>
+          </div>
+        </div>
 
-      <button className="placeOrderBtn" onClick={placeOrderHandler}>
-        Place Order
-      </button>
+        <button className="place-order-btn" onClick={placeOrderHandler}>
+          Place Order
+        </button>
+      </div>
     </div>
   );
 };
