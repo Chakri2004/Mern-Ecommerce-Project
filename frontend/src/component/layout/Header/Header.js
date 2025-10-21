@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link, useHistory } from "react-router-dom"; // useHistory for v5
+import { Link, useHistory } from "react-router-dom";
 import { FiShoppingCart, FiHeart, FiSearch } from "react-icons/fi";
 import "./Header.css";
 
 const Header = ({ isLoggedIn, handleLogout }) => {
   const [keyword, setKeyword] = useState("");
-  const history = useHistory(); // v5 navigation
+  const history = useHistory();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -17,20 +17,18 @@ const Header = ({ isLoggedIn, handleLogout }) => {
   };
 
   return (
-    <header>
+    <header className="header">
+      {/* Top Bar */}
       <div className="topBar">
         <ul>
           <li><Link to="/find-store">Find a Store</Link></li>
           <li><Link to="/help">Help</Link></li>
-          <li><Link to="/join-us">Join Us</Link></li> {/* Keep route consistent */}
+          <li><Link to="/join-us">Join Us</Link></li>
           {!isLoggedIn ? (
             <li><Link to="/signin">Sign In</Link></li>
           ) : (
             <li>
-              <span
-                style={{ cursor: "pointer" }}
-                onClick={handleLogout}
-              >
+              <span style={{ cursor: "pointer" }} onClick={handleLogout}>
                 Sign Out
               </span>
             </li>
@@ -38,11 +36,14 @@ const Header = ({ isLoggedIn, handleLogout }) => {
         </ul>
       </div>
 
+      {/* Main Header */}
       <div className="mainHeader">
+        {/* Logo */}
         <div className="logo">
           <Link to="/">AURA</Link>
         </div>
 
+        {/* Navigation Menu */}
         <nav className="mainMenu">
           <ul>
             <li><Link to="/new-featured">New & Featured</Link></li>
@@ -54,6 +55,7 @@ const Header = ({ isLoggedIn, handleLogout }) => {
           </ul>
         </nav>
 
+        {/* Search + Wishlist + Cart */}
         <div className="searchCart">
           <form onSubmit={submitHandler} className="headerSearchForm">
             <div className="searchInputWrapper">
@@ -68,8 +70,12 @@ const Header = ({ isLoggedIn, handleLogout }) => {
           </form>
 
           <div className="icons">
-            <Link to="/wishlist"><FiHeart /></Link>
-            <Link to="/cart"><FiShoppingCart /></Link>
+            <Link to="/wishlist" className="iconButton">
+              <FiHeart />
+            </Link>
+            <Link to="/cart" className="iconButton">
+              <FiShoppingCart />
+            </Link>
           </div>
         </div>
       </div>

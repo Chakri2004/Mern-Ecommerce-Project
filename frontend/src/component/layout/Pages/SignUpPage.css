@@ -1,0 +1,70 @@
+/* src/component/layout/Pages/SignUpPage.css */
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  font-family: "Roboto", sans-serif;
+}
+
+.signup-container {
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.signup-container h1 {
+  margin-bottom: 10px;
+}
+
+.signup-container p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 12px 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.signup-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #111;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-form button:hover {
+  background-color: #333;
+}
+
+.country {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.country .change {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.terms {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.terms a {
+  color: blue;
+  text-decoration: underline;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel Image Size Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .test-container {
+            width: 400px;
+            height: 350px;
+            border: 3px solid #1976d2;
+            margin: 20px auto;
+            position: relative;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        .test-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        .info {
+            text-align: center;
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h2 { color: #1976d2; }
+        .success { color: green; font-weight: bold; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h2>AuraBook Pro X Carousel Image Test</h2>
+        <p>Testing current image files in exact carousel container dimensions (400x350px)</p>
+    </div>
+    
+    <div class="test-container">
+        <img src="/images/laptops/aurabook-pro-x-1.jpg" alt="AuraBook Pro X - View 1" class="test-image" 
+             onload="this.nextElementSibling.textContent = '✅ Image 1 loaded successfully'" 
+             onerror="this.nextElementSibling.textContent = '❌ Image 1 failed to load'">
+        <div class="info"></div>
+    </div>
+    
+    <div class="test-container">
+        <img src="/images/laptops/aurabook-pro-x-2.jpg" alt="AuraBook Pro X - View 2" class="test-image"
+             onload="this.nextElementSibling.textContent = '✅ Image 2 loaded successfully'" 
+             onerror="this.nextElementSibling.textContent = '❌ Image 2 failed to load'">
+        <div class="info"></div>
+    </div>
+    
+    <div class="test-container">
+        <img src="/images/laptops/aurabook-pro-x-3.jpg" alt="AuraBook Pro X - View 3" class="test-image"
+             onload="this.nextElementSibling.textContent = '✅ Image 3 loaded successfully'" 
+             onerror="this.nextElementSibling.textContent = '❌ Image 3 failed to load'">
+        <div class="info"></div>
+    </div>
+    
+    <div class="test-container">
+        <img src="/images/laptops/aurabook-pro-x-4.jpg" alt="AuraBook Pro X - View 4" class="test-image"
+             onload="this.nextElementSibling.textContent = '✅ Image 4 loaded successfully'" 
+             onerror="this.nextElementSibling.textContent = '❌ Image 4 failed to load'">
+        <div class="info"></div>
+    </div>
+    
+    <div class="info">
+        <p><strong>What to expect:</strong></p>
+        <ul style="text-align: left; max-width: 500px; margin: 0 auto;">
+            <li>Images should fill the blue bordered containers completely</li>
+            <li>No white space around images</li>
+            <li>Images maintain their aspect ratio without distortion</li>
+            <li>All 4 images should load successfully</li>
+        </ul>
+        <br>
+        <p>Visit <a href="http://localhost:3000" target="_blank">your React app</a> to see the carousel in action!</p>
+    </div>
+</body>
+</html>

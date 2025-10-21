@@ -1,48 +1,33 @@
-const app = require("./app");
-const cloudinary = require("cloudinary");
-const connectDatabase = require("./config/database");
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const fileUpload = require("express-fileupload");
 const path = require("path");
 const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 
-// Handling Uncaught Exception
-process.on("uncaughtException", (err) => {
-  console.log(`Error: ${err.message}`);
-  console.log(`Shutting down the server due to Uncaught Exception`);
-  process.exit(1);
-});
+dotenv.config({ path: "backend/config/config.env" });
 
-// Config
-// backend/server.js
-dotenv.config({ path: "config/config.env" });
+const app = express();
 
-console.log("NODE_ENV:", process.env.NODE_ENV);
-console.log("PORT:", process.env.PORT);
-console.log("DB_URI:", process.env.DB_URI);
-console.log("STRIPE_API_KEY:", process.env.STRIPE_API_KEY);
-console.log("CLOUDINARY_NAME:", process.env.CLOUDINARY_NAME);
+app.use(express.json());
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileUpload());
 
+// Routes
+const otpRoutes = require("./routes/otp");
+const authRoutes = require("./routes/auth");
+app.use("/api/otp", otpRoutes);
+app.use("/api/auth", authRoutes);
 
-// Connecting to database
-connectDatabase();
+// Connect MongoDB
+mongoose.connect(process.env.DB_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error(err));
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+// Serve frontend
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "../frontend/build/index.html")));
 
-const PORT = process.env.PORT || 5000;
-
-const server = app.listen(PORT, () => {
-  console.log(`Server is working on http://localhost:${PORT}`);
-});
-
-// Unhandled Promise Rejection
-process.on("unhandledRejection", (err) => {
-  console.log(`Error: ${err.message}`);
-  console.log(`Shutting down the server due to Unhandled Promise Rejection`);
-
-  server.close(() => {
-    process.exit(1);
-  });
-});
+module.exports = app;

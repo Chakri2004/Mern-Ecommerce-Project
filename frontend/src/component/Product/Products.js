@@ -1,117 +1,37 @@
-import React, { Fragment, useEffect, useState } from "react";
-import "./Products.css";
-import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, getProduct } from "../../actions/productAction";
-import Loader from "../layout/Loader/Loader";
-import ProductCard from "../Home/ProductCard";
-import Pagination from "react-js-pagination";
-import { Slider, Typography } from "@mui/material"; // Updated imports
-import { useAlert } from "react-alert";
-import MetaData from "../layout/MetaData";
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Products.css";  
 
-const categories = [
-  "Laptop",
-  "Footwear",
-  "Bottom",
-  "Tops",
-  "Attire",
-  "Camera",
-  "SmartPhones",
+const products = [
+  { _id: "nf1", name: "Aura Premium Jacket Mens", price: 12500, image: "/images/jacket-mens.jpg" },
+  { _id: "nf2", name: "Aura Premium Jacket Womens", price: 12500, image: "/images/jacket-womens.jpg" },
+  { _id: "nf3", name: "Aura Limited Edition Mens Watch", price: 22000, image: "/images/watch-mens.jpg" },
+  { _id: "nf4", name: "Aura Limited Edition Womens Watch", price: 22000, image: "/images/watch-womens.jpg" },
+  { _id: "nf5", name: "Aura Classic Bag Womens", price: 9500, image: "/images/bag-womens.jpg" },
+  { _id: "nf6", name: "Aura Classic Bag Mens", price: 9500, image: "/images/bag-mens.jpg" },
+  { _id: "nf7", name: "Aura Sunglasses Mens", price: 7000, image: "/images/sunglass-mens.jpg" },
+  { _id: "nf8", name: "Aura Sunglasses Womens", price: 7000, image: "/images/sunglass-womens.jpg" },
 ];
 
-const Products = ({ match }) => {
-  const dispatch = useDispatch();
-  const alert = useAlert();
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [price, setPrice] = useState([0, 25000]);
-  const [category, setCategory] = useState("");
-  const [ratings, setRatings] = useState(0);
-
-  const { products, loading, error, productsCount, resultPerPage, filteredProductsCount } = useSelector((state) => state.products);
-
-  const keyword = match.params.keyword;
-
-  const setCurrentPageNo = (e) => setCurrentPage(e);
-
-  const priceHandler = (event, newPrice) => setPrice(newPrice);
-
-  let count = filteredProductsCount;
-
-  useEffect(() => {
-    if (error) {
-      alert.error(error);
-      dispatch(clearErrors());
-    }
-
-    dispatch(getProduct(keyword, currentPage, price, category, ratings));
-  }, [dispatch, keyword, currentPage, price, category, ratings, alert, error]);
-
+const Products = () => {
   return (
-    <Fragment>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Fragment>
-          <MetaData title="PRODUCTS -- ECOMMERCE" />
-          <h2 className="productsHeading">Products</h2>
-
-          <div className="products">
-            {products && products.map((product) => <ProductCard key={product._id} product={product} />)}
+    <div className="productsPage">
+      <div className="shopBanner">
+        <h1>🛍️ Welcome to Aura Shop</h1>
+        <p>Discover your favourite premium collection</p>
+      </div>
+      <div className="productsGrid">
+        {products.map((item) => (
+          <div className="productCard" key={item._id}>
+            <Link to={`/product/${item._id}`}>
+              <img src={item.image} alt={item.name} />
+              <h3>{item.name}</h3>
+              <p>₹{item.price}</p>
+            </Link>
           </div>
-
-          <div className="filterBox">
-            <Typography>Price</Typography>
-            <Slider
-              value={price}
-              onChange={priceHandler}
-              valueLabelDisplay="auto"
-              min={0}
-              max={25000}
-            />
-
-            <Typography>Categories</Typography>
-            <ul className="categoryBox">
-              {categories.map((category) => (
-                <li key={category} className="category-link" onClick={() => setCategory(category)}>
-                  {category}
-                </li>
-              ))}
-            </ul>
-
-            <fieldset>
-              <Typography component="legend">Ratings Above</Typography>
-              <Slider
-                value={ratings}
-                onChange={(e, newRating) => setRatings(newRating)}
-                valueLabelDisplay="auto"
-                min={0}
-                max={5}
-              />
-            </fieldset>
-          </div>
-
-          {resultPerPage < count && (
-            <div className="paginationBox">
-              <Pagination
-                activePage={currentPage}
-                itemsCountPerPage={resultPerPage}
-                totalItemsCount={productsCount}
-                onChange={setCurrentPageNo}
-                nextPageText="Next"
-                prevPageText="Prev"
-                firstPageText="1st"
-                lastPageText="Last"
-                itemClass="page-item"
-                linkClass="page-link"
-                activeClass="pageItemActive"
-                activeLinkClass="pageLinkActive"
-              />
-            </div>
-          )}
-        </Fragment>
-      )}
-    </Fragment>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -1,50 +1,39 @@
 const express = require("express");
 const router = express.Router();
-const nodemailer = require("nodemailer");
+const User = require("../models/userModel");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
-// OTP storage (for demo, later you can store in DB)
-const otpStore = {};
-
-// Send OTP to email
-router.post("/send-otp", async (req, res) => {
-  const { email } = req.body;
-  if (!email) return res.status(400).json({ message: "Email is required" });
-
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  otpStore[email] = otp;
-
-  // Configure email transporter
-  let transporter = nodemailer.createTransport({
-    service: "gmail", 
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
-  });
-
+// Register
+router.post("/register", async (req, res) => {
   try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Aura OTP",
-      text: `Your OTP is: ${otp}`,
-    });
-    res.json({ message: "OTP sent successfully" });
+    const { name, email, password, phone, avatar } = req.body;
+    let user = await User.findOne({ email });
+    if (user) return res.status(400).json({ message: "Email already exists" });
+
+    user = new User({ name, email, password, phone, avatar: { public_id: "temp", url: avatar } });
+    await user.save();
+
+    const token = user.getJWTToken();
+    res.status(201).json({ success: true, token, user });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Error sending OTP" });
+    res.status(500).json({ message: err.message });
   }
 });
 
-// Verify OTP
-router.post("/verify-otp", (req, res) => {
-  const { email, otp } = req.body;
-  if (otpStore[email] && otpStore[email] === otp) {
-    delete otpStore[email]; // OTP used once
-    return res.json({ message: "OTP verified" });
-  } else {
-    return res.status(400).json({ message: "Invalid OTP" });
-  }
+// Login
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) return res.status(400).json({ message: "Email & password required" });
+
+  const user = await User.findOne({ email }).select("+password");
+  if (!user) return res.status(401).json({ message: "Invalid Email or Password" });
+
+  const isPasswordMatched = await user.comparePassword(password);
+  if (!isPasswordMatched) return res.status(401).json({ message: "Invalid Email or Password" });
+
+  const token = user.getJWTToken();
+  res.status(200).json({ success: true, token, user });
 });
 
 module.exports = router;

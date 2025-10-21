@@ -21,7 +21,11 @@ const Search = () => {
       ...(auraItems.womens || []),
       ...(auraItems.kids || []),
       ...(auraItems.shoes || []),
-      ...(auraItems.laptops || []),
+      ...(auraItems.featuredProducts || []),
+      ...(auraItems.AuraVoyagerJerseyCollection || []),
+      ...(auraItems.AuraStellarCollection || []),
+      ...(auraItems.AuraEclipseCollection || []),
+      ...(auraItems.AuraNovaCollection || []),
     ];
 
     if (keyword.trim() !== "") {

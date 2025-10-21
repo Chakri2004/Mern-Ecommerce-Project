@@ -1,15 +1,15 @@
 import React from "react";
-import "../QuickLinks/QuickLinks.css";
 
 const Promotions = () => {
   return (
-    <div className="quickPage">
-      <h1>Promotions & Sale</h1>
-      <p>Check out our latest deals and exclusive offers for a limited time only!</p>
-      <ul>
-        <li>Up to 50% off selected products.</li>
-        <li>Buy 1 Get 1 Free on select items.</li>
-        <li>Seasonal discounts for members.</li>
+    <div style={{ padding: "2.5rem", maxWidth: "700px", margin: "auto", fontFamily: "'Arial', sans-serif" }}>
+      <h1 style={{ marginBottom: "20px", color: "#222" }}>Promotions & Offers</h1>
+      <p style={{ fontSize: "16px", color: "#444", marginBottom: "25px" }}>
+        Discover our latest promotions and exclusive deals. Hurry — these offers are available for a limited time only!
+      </p>
+      <ul style={{ listStyleType: "disc", paddingLeft: "20px", color: "#333", fontSize: "15px" }}>
+        <li style={{ marginBottom: "10px" }}>Save up to 50% on selected products.</li>
+        <li style={{ marginBottom: "10px" }}>Exclusive seasonal discounts for members.</li>
       </ul>
     </div>
   );

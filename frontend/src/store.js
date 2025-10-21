@@ -1,6 +1,5 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { thunk } from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
 
 // Reducers
 import { wishlistReducer } from "./reducers/wishlistReducer";
@@ -32,8 +31,8 @@ import {
   orderReducer,
 } from "./reducers/orderReducer";
 
-// Combine all reducers
-const reducer = combineReducers({
+// Combine reducers
+const rootReducer = combineReducers({
   wishlist: wishlistReducer,
   products: productsReducer,
   productDetails: productDetailsReducer,
@@ -58,7 +57,7 @@ const reducer = combineReducers({
   allOrders: allOrdersReducer,
 });
 
-// Initial state (load cart & shipping from localStorage)
+// Initial state
 const initialState = {
   cart: {
     cartItems: localStorage.getItem("cartItems")
@@ -73,11 +72,17 @@ const initialState = {
 // Middleware
 const middleware = [thunk];
 
+// Safe compose for DevTools
+const composeEnhancers =
+  (typeof window !== "undefined" &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+
 // Create store
 const store = createStore(
-  reducer,
+  rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeEnhancers(applyMiddleware(...middleware))
 );
 
 export default store;

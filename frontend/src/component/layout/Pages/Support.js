@@ -1,43 +1,53 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../QuickLinks/QuickLinks.css";
 
 const Support = () => {
   return (
-    <div className="quickPage">
-      <h1>Support</h1>
-      <p>
-        We’re here to help! If you have any questions, concerns, or need
-        assistance, reach out to us through any of the methods below:
+    <div className="quickPage" style={{ fontFamily: "'Arial', sans-serif", lineHeight: "1.7", padding: "3rem", maxWidth: "800px", margin: "auto" }}>
+      <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem", color: "#222" }}>Customer Support</h1>
+      <p style={{ fontSize: "1.1rem", color: "#555", marginBottom: "2rem" }}>
+        At Aura, we are dedicated to providing exceptional support. Whether you have questions, need guidance, or want to provide feedback, our team is here to assist you.
       </p>
 
-      <h2>Email Support</h2>
-      <p>
-        For general inquiries or assistance, email us at:{" "}
-        <a href="mailto:support@aurashop.com">support@aurashop.com</a>
-      </p>
+      <section style={{ marginBottom: "2rem" }}>
+        <h2 style={{ fontSize: "1.8rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Email Support</h2>
+        <p style={{ color: "#555" }}>
+          Reach out to our support team for inquiries or assistance via email: <a href="mailto:support@aurashop.com" style={{ color: "#0077cc" }}>support@aurashop.com</a>.
+        </p>
+      </section>
 
-      <h2>Phone Support</h2>
-      <p>
-        Call us at: <b>+91 98765 43210</b> (Mon – Fri, 9 AM – 6 PM)
-      </p>
+      <section style={{ marginBottom: "2rem" }}>
+        <h2 style={{ fontSize: "1.8rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Phone Support</h2>
+        <p style={{ color: "#555" }}>
+          Speak with a representative directly by calling <b>+91 98765 43210</b> (Monday – Friday, 9 AM – 6 PM).
+        </p>
+      </section>
 
-      <h2>Live Chat</h2>
-      <p>
-        Use the live chat option on the bottom-right corner of the website to
-        speak with our support team instantly.
-      </p>
+      <section style={{ marginBottom: "2rem" }}>
+        <h2 style={{ fontSize: "1.8rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Live Chat</h2>
+        <p style={{ color: "#555" }}>
+          Connect instantly with our support team through the live chat feature available on the bottom-right corner of the website for real-time assistance.
+        </p>
+      </section>
 
-      <h2>Help Center</h2>
-      <p>
-        Visit our <a href="/faqs">FAQs</a> page for answers to the most common
-        questions.
-      </p>
+      <section style={{ marginBottom: "2rem" }}>
+        <h2 style={{ fontSize: "1.8rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Help Center</h2>
+        <p style={{ color: "#555" }}>
+          Explore our <Link to="/faqs" style={{ color: "#0077cc" }}>FAQs</Link> for guidance on common questions, product usage, and more.
+        </p>
+      </section>
 
-      <h2>Feedback</h2>
-      <p>
-        We value your feedback! Share your thoughts with us at{" "}
-        <a href="mailto:feedback@aurashop.com">feedback@aurashop.com</a>
-      </p>
+      <section style={{ marginBottom: "2rem" }}>
+        <h2 style={{ fontSize: "1.8rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Feedback</h2>
+        <p style={{ color: "#555" }}>
+          Your feedback helps us improve. Share your thoughts with us at <a href="mailto:feedback@aurashop.com" style={{ color: "#0077cc" }}>feedback@aurashop.com</a>.
+        </p>
+      </section>
+
+      <footer style={{ textAlign: "center", color: "#888", marginTop: "3rem", fontSize: "0.9rem" }}>
+        &copy; 2025 Aura, Inc. All rights reserved.
+      </footer>
     </div>
   );
 };

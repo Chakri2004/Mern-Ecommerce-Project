@@ -5,46 +5,48 @@ import auraItems from "../../../data/auraItems";
 function Shoes() {
   const products = auraItems.shoes || [];
 
+  const categories = {
+    "Aura Premium Edition Shoes": ["Aura Luxe Runner", "Aura Elite Street", "Aura Apex Trainer", "Aura Signature Pro"],
+    "Casuals": ["Aura Casual Sliders", "Aura Trendy Sneakers"],
+  };
+
   return (
-    // 1. Changed to 'page-container' for page-level padding
     <div className="page-container">
-      
-      {/* Optional: Add a main heading like "Shoes" or "New Arrivals for Shoes" */}
-      <h1>Shoes</h1> 
-
-      {/* 2. Added 'grid' class to apply the new card layout */}
-      <div className="grid">
-        {products.map((product) => (
-          <Link 
-            key={product._id} 
-            to={`/product/${product._id}`}
-            // Ensure the Link doesn't have default text decoration
-            style={{ textDecoration: 'none', color: 'inherit' }} 
-          >
-            {/* 3. Changed to 'card' class for the card styling */}
-            <div className="card">
-              
-              {/* Image Placeholder/Container */}
-              <div className="product-image">
-                <img 
-                  src={product.images[0].url} 
-                  alt={product.name} 
-                  // Basic inline style for image to fit the card
-                  style={{ width: '100%', maxWidth: '150px', height: 'auto', marginBottom: '10px' }}
-                />
-              </div>
-
-              {/* Product Details (Name and Price) */}
-              <div className="product-info">
-                {/* Applied a class for the name (you may need to add specific styling for the purple/blue link color in your CSS) */}
-                <h3 className="product-name">{product.name}</h3>     
-                {/* Applied a class for the price (you may need to add specific styling for the red price color in your CSS) */}
-                <p className="product-price">₹{product.price}</p>      
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+      {Object.keys(categories).map((category) => (
+        <div key={category}>
+          <h1>{category}</h1>
+          <div className="grid">
+            {products
+              .filter((product) => categories[category].includes(product.name))
+              .map((product) => (
+                <Link
+                  key={product._id}
+                  to={`/product/${product._id}`}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <div className="card">
+                    <div className="product-image">
+                      <img
+                        src={product.images[0].url}
+                        alt={product.name}
+                        style={{
+                          width: "100%",
+                          maxWidth: "150px",
+                          height: "auto",
+                          marginBottom: "10px",
+                        }}
+                      />
+                    </div>
+                    <div className="product-info">
+                      <h3 className="product-name">{product.name}</h3>
+                      <p className="product-price">₹{product.price}</p>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

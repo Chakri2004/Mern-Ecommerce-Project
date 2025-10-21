@@ -1,18 +1,16 @@
-/* General header container */
-header {
+.header {
   width: 100%;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-family: "Roboto", sans-serif;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-/* ---------- Top Bar ---------- */
 .topBar {
-  background-color: #f5f5f5;
-  padding: 0.4rem 2rem;
+  background-color: #f8f8f8;
+  padding: 0.5rem 2rem;
   border-bottom: 1px solid #eaeaea;
 }
 
@@ -28,36 +26,33 @@ header {
 .topBar ul li a,
 .topBar ul li span {
   text-decoration: none;
-  color: #111;
-  font-size: 0.9rem;
+  color: #333;
+  font-size: 0.85rem;
   cursor: pointer;
 }
 
 .topBar ul li a:hover,
 .topBar ul li span:hover {
-  color: #ff6600;
+  color: #000;
 }
 
-/* ---------- Main Header ---------- */
 .mainHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2rem;
 }
 
-/* Logo */
 .logo a {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.2rem;
+  font-weight: 700;
   color: #111;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
-/* Main menu */
 .mainMenu ul {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -65,131 +60,111 @@ header {
 
 .mainMenu ul li a {
   text-decoration: none;
-  color: #111;
+  color: #333;
   font-size: 1rem;
-  transition: color 0.2s ease-in-out;
+  font-weight: 500;
+  padding-bottom: 5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.mainMenu ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #111;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
 }
 
 .mainMenu ul li a:hover {
-  color: #ff6600;
+  color: #000;
 }
 
-/* Search + Wishlist + Cart */
+.mainMenu ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 .searchCart {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  position: relative;
+  gap: 1.5rem;
+}
+
+.headerSearchForm {
+  display: flex;
+  align-items: center;
 }
 
 .searchInputWrapper {
   display: flex;
   align-items: center;
+  background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 25px;
-  height: 34px;
-  width: 200px;
-  transition: width 0.3s ease, border-color 0.3s ease;
-  padding: 0 0.5rem 0 0.5rem;
-  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 2px 8px;
+  height: 30px;
+  max-width: 180px;
 }
 
-.searchInputWrapper input[type="text"] {
+.searchIcon {
+  font-size: 16px;
+  color: #555;
+  margin-right: 8px;
+}
+
+.searchInputWrapper input {
   border: none;
   outline: none;
-  background: transparent;
-  width: 100%;
-  font-size: 1.0rem;
-  height: 100%;
-  padding: 10px 30px 10px 10px;
-}
-
-.searchInputWrapper .searchIcon {
-  position: absolute;
-  right: 90px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #555;
-  font-size: 19px;
-  pointer-events: none;
-}
-
-.searchInputWrapper:focus-within {
-  border-color: black;
-  width: 220px;
+  font-size: 0.85rem;
 }
 
 .icons {
   display: flex;
+  align-items: center;
   gap: 1rem;
-  font-size: 1.5rem;
-  color: #111;
 }
 
-.icons a {
-  color: #111;
-  transition: color 0.2s ease-in-out;
+.iconButton {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
 }
 
-.icons a:hover {
-  color: #ff6600;
+.iconButton svg {
+  width: 22px;
+  height: 22px;
+  stroke: #333;
 }
 
-/* Dropdown menu */
-.userMenu {
-  position: relative;
+.iconButton:hover svg {
+  stroke: #000;
 }
 
-.dropdownMenu {
-  position: absolute;
-  top: 25px;
-  right: 0;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  padding: 0.5rem;
-  z-index: 100;
+.iconLabel {
+  font-size: 0.9rem;
 }
 
-.dropdownMenu .logoutBtn {
-  background-color: #ff6600;
-  color: #fff;
-  border: none;
-  padding: 0.3rem 0.8rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.dropdownMenu .logoutBtn:hover {
-  background-color: #e55b00;
-}
-
-/* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .mainMenu ul {
-    gap: 1rem;
-    font-size: 0.9rem;
+    gap: 1.2rem;
   }
-
-  .searchInputWrapper input[type="text"] {
-    width: 150px;
+  .searchInputWrapper {
+    max-width: 200px;
   }
 }
 
 @media (max-width: 768px) {
-  .mainHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .mainMenu ul {
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
+  .mainMenu,
   .searchCart {
-    width: 100%;
-    justify-content: space-between;
+    display: none;
   }
 }

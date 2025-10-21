@@ -1,0 +1,41 @@
+.track-order-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px auto;
+  padding: 20px;
+  max-width: 500px;
+}
+
+.order-input {
+  padding: 10px;
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.track-btn {
+  background-color: #ff6600;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.order-status-box {
+  margin-top: 25px;
+  padding: 20px;
+  width: 100%;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.order-error {
+  margin-top: 20px;
+  color: red;
+  font-weight: bold;
+}

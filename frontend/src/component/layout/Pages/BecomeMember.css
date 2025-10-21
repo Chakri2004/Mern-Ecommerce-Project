@@ -1,0 +1,30 @@
+.become-member-cta {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+.become-member-cta h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.become-member-cta p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.join-now-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.join-now-btn:hover {
+  background-color: #333;
+}

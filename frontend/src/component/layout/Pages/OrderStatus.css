@@ -1,0 +1,53 @@
+.order-status-container {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 30px;
+  text-align: center;
+  background: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-status-container h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.order-status-container p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.input-section {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.input-section input {
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-section button {
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.input-section button:hover {
+  background-color: #333;
+}
+
+.status-message {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #222;
+}

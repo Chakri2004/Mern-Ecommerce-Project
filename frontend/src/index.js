@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "./store";
+import './index.css';
 
 import { positions, transitions, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
-// Polyfill process - FIX for "process is not defined" error
 import process from "process";
 window.process = process;
 

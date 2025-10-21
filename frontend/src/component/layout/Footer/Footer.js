@@ -1,68 +1,70 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import playStore from "../../../images/playstore.png";
-import appStore from "../../../images/Appstore.png";
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({ country = "India" }) => {
   return (
     <footer id="footer">
-      {/* Top Footer - Left, Middle, Right */}
-      <div className="topFooter">
-        {/* Left Section */}
-        <div className="footer-section leftFooter">
-          <h4>DOWNLOAD OUR APP</h4>
-          <p>Download App for Android and iOS mobile phones</p>
-          <div className="app-images">
-            <img src={playStore} alt="playstore" />
-            <img src={appStore} alt="Appstore" />
-          </div>
-        </div>
+      {/* Country Display */}
+      <div className="countryDisplay">
+        <p>Country / Region: {country}</p>
+      </div>
 
-        {/* Middle Section */}
-        <div className="footer-section midFooter">
-          <p>High Quality is our first priority</p>
-          <p>Stay updated with our latest products and offers</p>
-          <p>Copyrights 2025 &copy; Chakradhar Reddy</p>
+      <div className="topFooter">
+        {/* Left Section: All Columns */}
+        <div className="footer-section leftFooter">
+          {/* Resources */}
+          <div className="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><Link to="/find-store">Find a Store</Link></li>
+              <li><Link to="/gift-cards">Gift Cards</Link></li>
+              <li><Link to="/become-member">Become a Member</Link></li>
+              <li><Link to="/track-order">Track Your Order</Link></li>
+              <li><Link to="/promotions">Promotions & Sale</Link></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div className="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><Link to="/about">About PRORCY</Link></li>
+              <li><Link to="/careers">Careers</Link></li>
+              <li><Link to="/sustainability">Sustainability</Link></li>
+              <li><Link to="/news">News & Updates</Link></li>
+              <li><Link to="/report">Report a Concern</Link></li>
+            </ul>
+          </div>
+
+          {/* More */}
+          <div className="footer-column">
+            <h4>More</h4>
+            <ul>
+              <li><Link to="/support">Support</Link></li>
+              <li><Link to="/faqs">FAQs</Link></li>
+              <li><Link to="/termsandconditions">Terms & Conditions</Link></li>
+              <li><Link to="/privacy">Privacy Policy</Link></li>
+            </ul>
+          </div>
+
+          {/* Help & Contact */}
+          <div className="footer-column">
+            <h4>Help & Contact</h4>
+            <ul>
+              <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/feedback">Send Feedback</Link></li>
+              <li><Link to="/delivery">Delivery Info</Link></li>
+              <li><Link to="/returns">Returns & Exchange</Link></li>
+            </ul>
+          </div>
         </div>
 
         {/* Right Section */}
         <div className="footer-section rightFooter">
-          <h4>Follow Us</h4>
-          <a
-            href="http://instagram.com/sreechakradharreddyguddili"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram
-          </a>
-          <a
-            href="http://youtube.com/sreechakradharreddyguddili"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            YouTube
-          </a>
-          <a
-            href="http://facebook.com/sreechakradharreddyguddili"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Facebook
-          </a>
-        </div>
-      </div>
-
-      {/* Quick Links Section */}
-      <div className="quickLinks">
-        <h4>Quick Links</h4>
-        <div className="linksContainer">
-          <Link to="/support">Support</Link>
-          <Link to="/faqs">FAQs</Link>
-          <Link to="/promotions">Promotions & Sale</Link>
-          <Link to="/track-order">Track Order</Link>
-          <Link to="/termsandconditions">Terms & Conditions</Link>
-          <Link to="/privacy">Privacy Policy</Link>
+          <p>High Quality is our first priority</p>
+          <p>Stay updated with our latest products and offers</p>
+          <p>© 2025 Aura, Inc. All rights reserved</p>
         </div>
       </div>
     </footer>

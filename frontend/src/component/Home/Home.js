@@ -1,19 +1,20 @@
 import React, { Fragment, useEffect } from "react";
-import { FaStar } from "react-icons/fa"; 
-import "./Home.css";
-import ProductCard from "./ProductCard.js";
+import { useSelector, useDispatch } from "react-redux";
+import { getProduct, clearErrors } from "../../actions/productAction";
+import { useAlert } from "react-alert";
+import { Link } from "react-router-dom";
 import MetaData from "../layout/MetaData";
 import HeroBanner from "./HeroBanner";
 import FeaturedProducts from "./FeaturedProducts";
-import { clearErrors, getProduct } from "../../actions/productAction";
-import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
-import { useAlert } from "react-alert";
+import ShopBySport from "../Home/ShopBySport";
+import HomeBanner from "../Home/HomeBanner";
+import "./Home.css";
 
 const Home = () => {
-  const alert = useAlert();
   const dispatch = useDispatch();
-  const { loading, error, products } = useSelector((state) => state.products);
+  const alert = useAlert();
+  const { loading, error } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (error) {
@@ -31,13 +32,12 @@ const Home = () => {
         <Fragment>
           <MetaData title="AURA.Keep Going.AURA.World " />
 
-          <div className="banner">
-            <p>AURA</p>
-          </div>
           <div>
-            <HeroBanner />
-            <FeaturedProducts />
+            <HomeBanner />
           </div>
+          <HeroBanner />
+          <FeaturedProducts />
+          <ShopBySport />
         </Fragment>
       )}
     </Fragment>
