@@ -52,17 +52,13 @@ const Header = ({ isLoggedIn, handleLogout }) => {
         </nav>
 
         <div className="searchCart">
-          <form onSubmit={submitHandler} className="headerSearchForm">
-            <div className="searchInputWrapper">
-              <FiSearch className="searchIcon" />
-              <input
-                type="text"
-                placeholder="Search"
-                value={keyword}
-                onChange={(e) => setKeyword(e.target.value)}
-              />
-            </div>
-          </form>
+          <div
+            className="headerSearchForm"
+            style={{ cursor: "pointer" }}
+            onClick={() => history.push("/search")}
+          >
+            <span className="headerSearchText">Search</span>
+          </div>
 
           <div className="icons">
             <Link to="/wishlist" className="iconButton">
