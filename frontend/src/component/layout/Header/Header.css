@@ -99,6 +99,19 @@
 .headerSearchForm {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.headerSearchText {
+  font-size: 0.95rem;
+  color: #000000;
+  font-weight: 500;
+  padding: 4px 8px;
+  transition: color 0.2s ease;
+}
+
+.headerSearchText:hover {
+  color: #000;
 }
 
 .searchInputWrapper {
