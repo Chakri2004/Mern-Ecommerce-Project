@@ -147,7 +147,7 @@ const HomeBanner = () => {
       </div>
       <VideoSlide 
         src="/videos/homebanner/homebanner2.mp4"
-        index={1}
+        index={2}
         selectedSlide={selectedSlide}
         isUserPaused={isUserPaused}
         handleVideoPlay={handleVideoPlay}
